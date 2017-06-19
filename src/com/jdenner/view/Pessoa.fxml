@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import com.jdenner.control.util.MaskField?>
+
+<VBox alignment="CENTER" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jdenner.control.PessoaController">
+    <children>
+        <HBox alignment="CENTER_LEFT" spacing="5.0">
+            <children>
+                <Button fx:id="btnNovo" mnemonicParsing="false" onAction="#onActionBtnNovo" prefWidth="80.0" text="Novo">
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </padding>
+                    <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@img/novo.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="btnSalvar" mnemonicParsing="false" onAction="#onActionBtnSalvar" prefWidth="80.0" text="Salvar">
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </padding>
+                    <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@img/salvar.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#onActionBtnCancelar" prefWidth="80.0" text="Cancelar">
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </padding>
+                    <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@img/cancel.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </HBox>
+        <SplitPane fx:id="spPainel" dividerPositions="0.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="600.0">
+            <items>
+                <TabPane fx:id="tpFormulario" layoutX="72.0" layoutY="43.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                        <Tab fx:id="tbPessoa" text="Pessoa">
+                            <content>
+                                <VBox fillWidth="false" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" spacing="1.0">
+                                    <children>
+                                        <Label text="Nome">
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <TextField fx:id="tfNome" prefWidth="350.0" />
+                                        <Label text="Endereço">
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <TextField fx:id="tfEndereco" prefWidth="350.0" />
+                                        <Label text="Estado">
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <ComboBox fx:id="cbEstado" onAction="#onActionCbEstado" prefWidth="300.0" />
+                                        <Label text="Cidade">
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <ComboBox fx:id="cbCidade" prefWidth="300.0" />
+                                        <Label text="Telefone">
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <MaskField fx:id="tfTelefone" mask="(DD)DDDDD-DDDD" prefWidth="174.0" />
+                                        <Label text="Email">
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <TextField fx:id="tfEmail" prefWidth="350.0" />
+                                        <Label text="Situação">
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <HBox spacing="10.0">
+                                            <children>
+                                                <RadioButton fx:id="rbAtivo" mnemonicParsing="false" selected="true" text="Ativo">
+                                                    <toggleGroup>
+                                                        <ToggleGroup fx:id="tgStatus" />
+                                                    </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rbInativo" mnemonicParsing="false" text="Inativo" toggleGroup="$tgStatus" />
+                                            </children>
+                                        </HBox>
+                                        <Label text="Tipo">
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <HBox spacing="10.0">
+                                            <children>
+                                                <CheckBox fx:id="cbCliente" mnemonicParsing="false" text="Cliente" />
+                                                <CheckBox fx:id="cbFornecedor" mnemonicParsing="false" text="Fornecedor" />
+                                                <CheckBox fx:id="cbFuncionario" mnemonicParsing="false" onAction="#onActionFuncionario" text="Funcionário" />
+                                                <RadioButton fx:id="rbPessoaFisica" mnemonicParsing="false" onAction="#onActionRbTipo" selected="true" text="Pessoa Física">
+                                                    <toggleGroup>
+                                                        <ToggleGroup fx:id="tgTipo" />
+                                                    </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rbPessoaJuridica" mnemonicParsing="false" onAction="#onActionRbTipo" text="Pessoa Jurídica" toggleGroup="$tgTipo" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="15.0" left="15.0" right="15.0" top="5.0" />
+                                    </padding>
+                                </VBox>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="tbPessoaFisica" text="Pessoa Física">
+                            <content>
+                                <VBox fillWidth="false" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" spacing="1.0">
+                                    <children>
+                                        <Label text="CPF">
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <MaskField fx:id="tfCpf" mask="DDD.DDD.DDD-DD" prefWidth="174.0" />
+                                        <Label text="RG">
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <TextField fx:id="tfRg" prefWidth="174.0" />
+                                        <Label text="Data de Nascimento">
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <DatePicker fx:id="dpDataNascimento" />                                        
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="15.0" left="15.0" right="15.0" top="5.0" />
+                                    </padding>
+                                </VBox>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="tbPessoaJuridica" text="Pessoa Jurídica">
+                            <content>
+                                <VBox fillWidth="false" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" spacing="1.0">
+                                    <children>
+                                        <Label text="CNPJ">
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <MaskField fx:id="tfCnpj" mask="DD.DDD.DDD/DDDD-DD" prefWidth="174.0" />
+                                        <Label text="Inscrição Estadual">
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <TextField fx:id="tfIe" prefWidth="174.0" />
+                                        <Label text="Razão Social">
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <TextField fx:id="tfRazaoSocial" prefWidth="350.0" />                                        
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="15.0" left="15.0" right="15.0" top="5.0" />
+                                    </padding>
+                                </VBox>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="tbFuncionario" text="Funcionário">
+                            <content>
+                                <VBox fillWidth="false" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" spacing="1.0">
+                                    <children>
+                                        <Label text="Data de Admissão">
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <DatePicker fx:id="dpDataAdmissao" />
+                                        <Label text="Data de Demissão">
+                                            <VBox.margin>
+                                                <Insets top="5.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <DatePicker fx:id="dpDataDemissao" />                                        
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="15.0" left="15.0" right="15.0" top="5.0" />
+                                    </padding>
+                                </VBox>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+                <VBox fx:id="pnGrade" minHeight="0.0" minWidth="0.0">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                            <children>
+                                <Label text="Fitlrar:" />
+                                <CheckBox fx:id="cbClientes" mnemonicParsing="false" onAction="#onActionVisualizar" text="Clientes" />
+                                <CheckBox fx:id="cbFornecedores" mnemonicParsing="false" onAction="#onActionVisualizar" text="Fornecedores" />
+                                <CheckBox fx:id="cbFuncionarios" mnemonicParsing="false" onAction="#onActionVisualizar" text="Funcionários" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <TextField fx:id="tfFiltro" promptText="Nome" onAction="#onActionVisualizar" prefWidth="230.0" style="-fx-border-radius: 13; -fx-background-radius: 13; -fx-padding: 4 10 4 10;" />
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0" left="2.0" right="2.0" />
+                            </padding>
+                        </HBox>
+                        <TableView fx:id="tbGrade">
+                            <columns>
+                                <TableColumn fx:id="tcNome" prefWidth="75.0" text="Nome" />
+                                <TableColumn fx:id="tcDocumento" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="Documento" />
+                                <TableColumn fx:id="tcTipo" maxWidth="80.0" minWidth="80.0">
+                                    <graphic>
+                                        <HBox alignment="CENTER">
+                                            <children>
+                                                <Label text="Tipo" />
+                                                <Button fx:id="btnAjudaTipo" minHeight="16.0" minWidth="16.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="16.0" style="-fx-background-color: transparent;">
+                                                    <graphic>
+                                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@img/ajuda.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Button>
+                                            </children>
+                                        </HBox>
+                                    </graphic>
+                                </TableColumn>
+                                <TableColumn fx:id="tcStatus" maxWidth="55.0" minWidth="55.0" prefWidth="55.0" text="Situação" />
+                                <TableColumn fx:id="tcEditar" maxWidth="55.0" minWidth="55.0" prefWidth="55.0" text="Editar" />
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </TableView>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </VBox>
+            </items>
+        </SplitPane>
+    </children>
+</VBox>
