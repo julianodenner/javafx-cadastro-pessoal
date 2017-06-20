@@ -75,15 +75,25 @@ public class PessoaDAO {
 
         String sql = "select p.*, c.codpessoa as cliente, fo.codpessoa as fornecedor, fu.codpessoa as funcionario ";
         sql += "from tbpessoa as p ";
+        sql += "left join tbpessoafisica as pf on pf.codpessoafisica = p.codpessoafisica ";
+        sql += "left join tbpessoajuridica as pj on pj.codpessoajuridica = p.codpessoajuridica ";
         sql += (clientes ? "inner" : "left") + " join tbcliente as c on c.codpessoa = p.codpessoa ";
         sql += (fornecedores ? "inner" : "left") + " join tbfornecedor as fo on fo.codpessoa = p.codpessoa ";
         sql += (funcionarios ? "inner" : "left") + " join tbfuncionario as fu on fu.codpessoa = p.codpessoa ";
         sql += " where 1=1 ";
         sql += (somenteAtivos) ? " and p.status = 'A' " : " ";
-        sql += (!filtro.trim().isEmpty()) ? " and p.nome like '%" + filtro + "%' " : " ";
+        sql += (!filtro.trim().isEmpty()) ? " "
+                + "and (p.nome like ? "
+                + "or replace(replace(pf.cpf,'.',''),'-','') = ? "
+                + "or replace(replace(replace(pj.cnpj,'.',''),'-',''),'/','') = ?)" : " ";
         sql += "order by p.nome";
         Conexao con = new Conexao();
         PreparedStatement ps = con.getConexao().prepareStatement(sql);
+        if (!filtro.trim().isEmpty()) {
+            ps.setString(1, "%" + filtro + "%");
+            ps.setString(2, filtro.replaceAll("-", "").replaceAll("\\.", ""));
+            ps.setString(3, filtro.replaceAll("-", "").replaceAll("\\.", "").replaceAll("/", ""));
+        }
         ResultSet rs = ps.executeQuery();
         ObservableList<Pessoa> lista = FXCollections.observableArrayList();
 

@@ -243,7 +243,7 @@
                                 <CheckBox fx:id="cbFornecedores" mnemonicParsing="false" onAction="#onActionVisualizar" text="Fornecedores" />
                                 <CheckBox fx:id="cbFuncionarios" mnemonicParsing="false" onAction="#onActionVisualizar" text="Funcionários" />
                                 <Region HBox.hgrow="ALWAYS" />
-                                <TextField fx:id="tfFiltro" promptText="Nome" onAction="#onActionVisualizar" prefWidth="230.0" style="-fx-border-radius: 13; -fx-background-radius: 13; -fx-padding: 4 10 4 10;" />
+                                <TextField fx:id="tfFiltro" promptText="Nome ou documento" onAction="#onActionVisualizar" prefWidth="230.0" style="-fx-border-radius: 13; -fx-background-radius: 13; -fx-padding: 4 10 4 10;" />
                             </children>
                             <padding>
                                 <Insets bottom="10.0" left="2.0" right="2.0" />

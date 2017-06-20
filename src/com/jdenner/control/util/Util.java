@@ -6,24 +6,23 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-/**
- *
- * @author rafael
- */
 public class Util {
 
     public static final LocalDate toLocalDate(Date date) {
+        if (date == null) {
+            return null;
+        }
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         return LocalDate.parse(sdf.format(date), dtf);
     }
 
-    public static Date toDate(LocalDate value) throws ParseException {
-        if (value == null) {
+    public static Date toDate(LocalDate date) throws ParseException {
+        if (date == null) {
             return null;
         }
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.parse(value.toString());
+        return sdf.parse(date.toString());
     }
 
 }

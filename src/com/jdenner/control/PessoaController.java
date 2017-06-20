@@ -422,6 +422,7 @@ public class PessoaController {
         tfRazaoSocial.setText("");
         dpDataAdmissao.setValue(null);
         dpDataDemissao.setValue(null);
+        tpFormulario.getTabs().removeAll(tbPessoaFisica, tbPessoaJuridica, tbFuncionario);
     }
 
     private void exibeAjudaTipo() {

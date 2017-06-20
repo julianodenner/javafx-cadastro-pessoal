@@ -1,0 +1,12 @@
+/* 
+    Created on : 20/06/2017, 17:02:49
+    Author     : juliano.rocha
+*/
+.filtro {
+    -fx-background-color: #ffffff00;
+    -fx-border-color: #cccccc;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-background-image: url('/img/localizar.png');
+}
+
