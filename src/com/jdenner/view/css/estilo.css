@@ -3,10 +3,12 @@
     Author     : juliano.rocha
 */
 .filtro {
-    -fx-background-color: #ffffff00;
-    -fx-border-color: #cccccc;
     -fx-background-radius: 12;
     -fx-border-radius: 12;
-    -fx-background-image: url('/img/localizar.png');
+    -fx-background-image: url("../img/localizar.png");
+    -fx-background-repeat: no-repeat;   
+    -fx-background-size: 11;
+    -fx-background-position: right 10 center;
+    -fx-padding: 4 22 4 11;
 }
 

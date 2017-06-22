@@ -26,7 +26,7 @@
     <children>
         <HBox alignment="CENTER_LEFT" spacing="5.0">
             <children>
-                <Button fx:id="btnNovo" mnemonicParsing="false" onAction="#onActionBtnNovo" prefWidth="80.0" text="Novo">
+                <Button fx:id="btnNovo" mnemonicParsing="false" onAction="#onActionBtnNovo" prefWidth="100.0" text="Novo">
                     <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </padding>
@@ -38,7 +38,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="btnSalvar" mnemonicParsing="false" onAction="#onActionBtnSalvar" prefWidth="80.0" text="Salvar">
+                <Button fx:id="btnSalvar" mnemonicParsing="false" onAction="#onActionBtnSalvar" prefWidth="100.0" text="Salvar">
                     <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </padding>
@@ -50,7 +50,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#onActionBtnCancelar" prefWidth="80.0" text="Cancelar">
+                <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#onActionBtnCancelar" prefWidth="100.0" text="Cancelar">
                     <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </padding>
@@ -243,7 +243,7 @@
                                 <CheckBox fx:id="cbFornecedores" mnemonicParsing="false" onAction="#onActionVisualizar" text="Fornecedores" />
                                 <CheckBox fx:id="cbFuncionarios" mnemonicParsing="false" onAction="#onActionVisualizar" text="Funcionários" />
                                 <Region HBox.hgrow="ALWAYS" />
-                                <TextField fx:id="tfFiltro" promptText="Nome ou documento" onAction="#onActionVisualizar" prefWidth="230.0" style="-fx-border-radius: 13; -fx-background-radius: 13; -fx-padding: 4 10 4 10;" />
+                                <TextField fx:id="tfFiltro" styleClass="filtro" stylesheets="@css/estilo.css" promptText="Nome ou documento" onAction="#onActionVisualizar" prefWidth="230.0" />
                             </children>
                             <padding>
                                 <Insets bottom="10.0" left="2.0" right="2.0" />
@@ -271,7 +271,7 @@
                                         </HBox>
                                     </graphic>
                                 </TableColumn>
-                                <TableColumn fx:id="tcStatus" maxWidth="55.0" minWidth="55.0" prefWidth="55.0" text="Situação" />
+                                <TableColumn fx:id="tcStatus" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="Situação" />
                                 <TableColumn fx:id="tcEditar" maxWidth="55.0" minWidth="55.0" prefWidth="55.0" text="Editar" />
                             </columns>
                             <columnResizePolicy>

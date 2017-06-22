@@ -19,7 +19,7 @@ public class Principal extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        String url = "/com/jdenner/view/TextFieldFilter.fxml";
+        String url = "/com/jdenner/view/Pessoa.fxml";
         FXMLLoader loader = new FXMLLoader(getClass().getResource(url));
         Parent root = loader.load();
         Scene scene = new Scene(root);
