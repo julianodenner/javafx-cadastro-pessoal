@@ -10,4 +10,4 @@
   </ul>
 </p>
 <p>Pré-visualização:</p>
-<img src="http://jdenner.com/resources/javafx-cadastro-pessoal.png" alt="Sistema executando">
+<img src="http://jdenner.com/resources/javafx-cadastro-pessoa.png" alt="Sistema executando">
